@@ -282,7 +282,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "input {\n\twidth: 80%\n}\n\n#race-list-box {\n\twidth: 80%;\n\tmax-height: 540px;\n\toverflow: scroll\n}", ""]);
+exports.push([module.i, "input {\n\twidth: 80%\n}\n\n#race-list-box {\n\twidth: 80%;\n\tmax-height: 540px;\n\toverflow: scroll\n}\n\n/* haha  */", ""]);
 
 // exports
 
