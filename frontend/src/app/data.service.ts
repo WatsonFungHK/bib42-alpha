@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-// import { RaceViewerComponent } from './race-viewer/race-viewer.component'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 

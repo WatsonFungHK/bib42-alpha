@@ -72,7 +72,7 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
   }
 
   getHolidays(country) {
-    this.serverService.retrieveHolidays(country.toLowerCase())
+    this.serverService.retrieveHolidays(country)
       .subscribe(
         data => this.holidays = data,
         error => console.log(error)
