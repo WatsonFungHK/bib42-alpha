@@ -74,7 +74,8 @@ app.get('/api/mybib',(req,res)=>{
 });
 
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/frontend/dist/index.html'))
+    res.json('go back to server.js to determine path')
+    // res.sendFile(path.join(__dirname + '/frontend/dist/index.html'))
 });
 
 app.listen(port);

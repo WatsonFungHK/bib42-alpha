@@ -1,0 +1,23 @@
+{
+	"development": {
+    "username": "chingwafung",
+    "password": "93327241",
+    "database": "asian_marathon",
+    "host": "127.0.0.1",
+	"dialect": "postgres"
+	},
+	"test": {
+		"username": "chingwafung",
+		"password": "93327241",
+		"database": "93327241",
+		"host": "127.0.0.1",
+		"dialect": "postgres"
+	},
+	"production": {
+		"username": "chingwafung",
+		"password": "93327241",
+		"database": "93327241",
+		"host": "127.0.0.1",
+		"dialect": "postgres"
+	}
+}
