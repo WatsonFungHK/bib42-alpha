@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-
+// hahaha
   transform(races: any, term: any): any {
     if ( term == '') return races
     return races.filter( race => {
