@@ -53,13 +53,12 @@ app.get('/api/holidays/:country', (req, res)=>{
 
 app.get('/api/pastweather/:raceName', (req, res)=> {
     const raceName = req.params.raceName.replace(/'%20'/g, ' ')
-    console.log('haha: '+raceName)
+
     past_weather.findAll({
         where: {
             race_name: raceName
         }
     }).then((obj) => {
-        console.log(obj)
         res.json(obj)
     }).catch((err)=>{
         throw new Error(err)
