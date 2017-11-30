@@ -2,7 +2,7 @@
 <!-- <h3>
   One more excuse to travel
 </h3> -->
-<input placeholder="find the next race" type='text' />
+<input placeholder="find the next race" type='text' [(ngModel)]="term" />
 <!-- </div>  -->
 <ul id=race-list-box>
   <li *ngFor="let race of races | filter:term as result; let i=index" style="list-style: none;">
