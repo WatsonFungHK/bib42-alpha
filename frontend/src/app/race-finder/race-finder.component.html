@@ -2,13 +2,13 @@
 <!-- <h3>
   One more excuse to travel
 </h3> -->
-<input placeholder="find the next race" type='text' [(ngModel)]="term" />
+<input data-role="tagsinput" placeholder="find the next race" type="text" [(ngModel)]="term" />
 <!-- </div>  -->
 <ul id=race-list-box>
   <li *ngFor="let race of races | filter:term as result; let i=index" style="list-style: none;">
-    <!-- <div *ngIf="i<1">
+    <div *ngIf="i<1">
      {{result? result.length : 0}} races may satisfy you
-    </div> -->
+    </div>
     <div (click)="raceOnClicked(race)">
       <span>
         <h4>{{race.race_name}}</h4>

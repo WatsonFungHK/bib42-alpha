@@ -21,12 +21,12 @@ export class RaceFinderComponent implements OnInit {
     race_date: "2018-03-17T16:00:00.000Z"
   };
   term = "";
-
+  termArray = ["Japan", "August", "International marathon", "Beijing", "Taipei", "Half marathon", "osaka", "hong kong", "trail", "city"];
   constructor(private serverService: ServerService, private dataService: DataService) {
-    // this.dataService.setRaceView(this.raceClicked)
   }
 
   ngOnInit() {
+    this.term = this.termArray[Math.floor(Math.random() * this.termArray.length)];
     this.getRace_basic_info();
   }
 

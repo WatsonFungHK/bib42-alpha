@@ -241,17 +241,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var FilterPipe = (function () {
     function FilterPipe() {
+        this.month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     }
     FilterPipe.prototype.transform = function (races, term) {
-        console.log("filtering");
         term = term.toLowerCase();
         if (term === "") {
             return races;
         }
         return races.filter(function (race) {
+            // // tslint:disable-next-line:radix
+            // const monthIdx = parseInt(race.race_date.split("-")[1]);
+            // console.log(monthIdx + typeof(monthIdx));
+            // const monthName = this.month[monthIdx];
+            // const monthName: string = race.race_date.getLongMonth();
+            // console.log(monthName);
             return race.race_name.toLowerCase().includes(term) ||
                 race.city.toLowerCase().includes(term) ||
                 race.country.toLowerCase().includes(term);
+            // ||
+            // monthName.includes(term);
         });
     };
     FilterPipe = __decorate([
@@ -287,7 +295,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/race-finder/race-finder.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- <h3>\n  One more excuse to travel\n</h3> -->\n<input placeholder=\"find the next race\" type='text' [(ngModel)]=\"term\" />\n<!-- </div>  -->\n<ul id=race-list-box>\n  <li *ngFor=\"let race of races | filter:term as result; let i=index\" style=\"list-style: none;\">\n    <!-- <div *ngIf=\"i<1\">\n     {{result? result.length : 0}} races may satisfy you\n    </div> -->\n    <div (click)=\"raceOnClicked(race)\">\n      <span>\n        <h4>{{race.race_name}}</h4>\n        <p>{{race.city}}, {{race.country}} || {{race.race_date | date: 'fullDate'}}</p>\n      </span>\n    </div>  \n  </li>\n</ul>\n"
+module.exports = "\n<!-- <h3>\n  One more excuse to travel\n</h3> -->\n<input data-role=\"tagsinput\" placeholder=\"find the next race\" type=\"text\" [(ngModel)]=\"term\" />\n<!-- </div>  -->\n<ul id=race-list-box>\n  <li *ngFor=\"let race of races | filter:term as result; let i=index\" style=\"list-style: none;\">\n    <div *ngIf=\"i<1\">\n     {{result? result.length : 0}} races may satisfy you\n    </div>\n    <div (click)=\"raceOnClicked(race)\">\n      <span>\n        <h4>{{race.race_name}}</h4>\n        <p>{{race.city}}, {{race.country}} || {{race.race_date | date: 'fullDate'}}</p>\n      </span>\n    </div>  \n  </li>\n</ul>\n"
 
 /***/ }),
 
@@ -326,9 +334,10 @@ var RaceFinderComponent = (function () {
             race_date: "2018-03-17T16:00:00.000Z"
         };
         this.term = "";
-        // this.dataService.setRaceView(this.raceClicked)
+        this.termArray = ["Japan", "August", "International marathon", "Beijing", "Taipei", "Half marathon", "osaka", "hong kong", "trail", "city"];
     }
     RaceFinderComponent.prototype.ngOnInit = function () {
+        this.term = this.termArray[Math.floor(Math.random() * this.termArray.length)];
         this.getRace_basic_info();
     };
     RaceFinderComponent.prototype.raceOnClicked = function (race) {
@@ -488,12 +497,12 @@ var RaceViewerComponent = (function () {
         this.dataService = dataService;
         this.raceForView = {
             id: 25,
-            race_name: 'Cebu City Marathon',
-            country: 'Philippines',
-            city: 'Cebu',
-            official_website: 'http://www.cebumarathon.net/',
+            race_name: "Cebu City Marathon",
+            country: "Philippines",
+            city: "Cebu",
+            official_website: "http://www.cebumarathon.net/",
             description: null,
-            race_date: '2018-01-13T16:00:00.000Z'
+            race_date: "2018-01-13T16:00:00.000Z"
         };
         this.events = [];
         this.holidays = [];
@@ -501,7 +510,7 @@ var RaceViewerComponent = (function () {
             _this.raceForView = data;
             _this.getFurtherInfo(_this.raceForView.race_name);
             _this.getHolidays(_this.raceForView.country);
-            // this.pastWeather(this.raceForView.race_name)
+            _this.getPastWeather(_this.raceForView.race_name);
         }, function (error) { return console.log(error); });
     }
     RaceViewerComponent.prototype.ngOnDestroy = function () {
@@ -524,7 +533,7 @@ var RaceViewerComponent = (function () {
             .subscribe(function (data) {
             _this.events = [];
             data.forEach(function (event) {
-                var startTimeOrNotice = event.start_time ? event.start_time.substr(0, 5) : 'not announced yet';
+                var startTimeOrNotice = event.start_time ? event.start_time.substr(0, 5) : "not announced yet";
                 _this.events.push({
                     type: event.event,
                     start_time: startTimeOrNotice
