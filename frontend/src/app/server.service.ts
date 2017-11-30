@@ -9,29 +9,48 @@ export class ServerService {
 
   constructor(private http: Http) { }
 
-  // retrieveDataFromPsqlTableOf(tableName) {
-  //   const httpRequestUrl: string = environment.url + '/api/' + tableName
-  //   console.log(httpRequestUrl)
-  //   return this.http.get(httpRequestUrl)
-  //     .map(
-  //       (response: Response) => {
-  //         const data = response.json()
-  //         return data
-  //       }
-  //     )
-  // }
-  retrieveBasicInfo(term: string): Observable<any> {
-    return this.http.get(environment.url + '/api/race_basic_info')
+  retrieveBasicInfo(): Observable<any> {
+    const apiUrl = environment.url + '/api/race_basic_info'
+    return this.http.get(apiUrl)
       .map(
         (response: Response) => {
           const data = response.json()
-          // console.log(data)
           return data
-          // return data.filter((race) => {
-          //   return race.race_name.toLowerCase()
-          //     .includes(term.toLowerCase())
-          // })
         }
       )
   }
+
+  retrieveEventAndStartTime(raceName: string) {
+    const apiUrl = environment.url + '/api/eventandstarttime/' + raceName.replace(/\s/g, '%20')
+    return this.http.get(apiUrl)
+      .map(
+        (response: Response) => {
+          const data = response.json()
+          return data
+        }
+      )
+  }
+
+  retrievePastWeather(raceName: string) {
+    const apiUrl = environment.url + '/api/pastweather/' + raceName.replace(/\s/g, '%20')
+    return this.http.get(apiUrl)
+      .map(
+        (response: Response) => {
+          const data = response.json()
+          return data
+        }
+      )
+  }
+
+  retrieveHolidays(countryName: string) {
+    const apiUrl = environment.url + '/api/holidays/' + countryName.replace(/\s/g, '%20').toLowerCase()
+    return this.http.get(apiUrl)
+      .map(
+        (response: Response) => {
+          const data = response.json()
+          return data
+        }
+      )
+  }
+
 }

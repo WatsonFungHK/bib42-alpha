@@ -26,7 +26,7 @@ app.get('/api/race_basic_info',(req,res)=>{
     })
 });
 
-app.get('/api/EventAndStartTime/:raceName', (req, res)=>{
+app.get('/api/eventandstarttime/:raceName', (req, res)=>{
     const raceName = req.params.raceName.replace(/%20/g, ' ')
     event_type_and_start_time.findAll({
         where: {
