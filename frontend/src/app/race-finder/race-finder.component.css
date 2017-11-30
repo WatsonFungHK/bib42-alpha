@@ -5,7 +5,7 @@ input {
 #race-list-box {
 	width: 80%;
 	max-height: 540px;
-	overflow: scroll
+	overflow: auto;
 }
 
  .marathon-container {

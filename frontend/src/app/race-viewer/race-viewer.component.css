@@ -1,4 +1,4 @@
 #viewer {
 	max-height: 580px;
-	overflow: scroll
+	overflow: auto;
 }
