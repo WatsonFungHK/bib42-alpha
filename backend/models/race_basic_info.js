@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes){
 			city: DataTypes.STRING,
 			official_website: DataTypes.STRING,
 			race_date: DataTypes.DATE,
-			description: DataTypes.TEXT
 		},
 		{freezeTableName: true}
 	)

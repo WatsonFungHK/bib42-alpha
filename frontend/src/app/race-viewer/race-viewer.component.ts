@@ -16,7 +16,6 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
     country: "Philippines",
     city: "Cebu",
     official_website: "http://www.cebumarathon.net/",
-    description: null,
     race_date: "2018-01-13T16:00:00.000Z"
   }
   subsription: Subscription

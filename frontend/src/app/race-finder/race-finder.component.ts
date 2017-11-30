@@ -17,7 +17,6 @@ export class RaceFinderComponent implements OnInit {
     country: "Taiwan",
     city: "Taipei City",
     official_website: "http://www.shonan-kokusai.jp/12th/",
-    description: "greodgnoregreignrogiowegheowig",
     race_date: "2018-03-17T16:00:00.000Z"
   };
   term = "";

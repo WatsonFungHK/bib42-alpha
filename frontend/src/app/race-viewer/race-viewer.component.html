@@ -3,7 +3,6 @@
 	   <a href={{raceForView.official_website}} target="_blank">Go To the official website</a>   
 	<p>{{raceForView.city}}, {{raceForView.country}} || {{raceForView.race_date | date: 'fullDate'}}</p>
 	<br>
-	<p>{{raceForView.description}}</p>
 	<h4>Events</h4>
 	<div *ngFor="let event of events" class="container-fluid">
 		<div class="grid row col-lg-6 ">
