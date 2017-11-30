@@ -20,7 +20,7 @@ export class RaceFinderComponent implements OnInit {
     race_date: "2018-03-17T16:00:00.000Z"
   };
   term = "";
-  termArray = ["Japan", "August", "International marathon", "Beijing", "Taipei", "Half marathon", "osaka", "hong kong", "trail", "city"];
+  termArray = ["Japan", "December", "International marathon", "Beijing", "Taiwan", "Half marathon", "Thailand", "hong kong", "trail", "city"];
   constructor(private serverService: ServerService, private dataService: DataService) {
   }
 
@@ -31,7 +31,7 @@ export class RaceFinderComponent implements OnInit {
 
   raceOnClicked(race) {
     this.raceClicked = race;
-    console.log("raceOnClicked() with " + this.raceClicked.race_name);
+    // console.log("raceOnClicked() with " + this.raceClicked.race_name);
     // console.log(this.raceClicked )
     this.dataService.sendRace(this.raceClicked);
   }

@@ -40,17 +40,17 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
     this.subsription.unsubscribe()
   }
 
-  updateRaceView() {
-    console.log(this.raceForView)
-    // this.getFurtherInfo(this.raceForView.race_name)
-    // this.getHolidays(this.raceForView.country)
-    // this.getPastWeather(this.raceForView.race_name)
-  }
+  // updateRaceView() {
+  //   console.log(this.raceForView)
+  //   // this.getFurtherInfo(this.raceForView.race_name)
+  //   // this.getHolidays(this.raceForView.country)
+  //   // this.getPastWeather(this.raceForView.race_name)
+  // }
 
   ngOnInit() {
       this.getFurtherInfo(this.raceForView.race_name)
       this.getHolidays(this.raceForView.country)
-      // this.getPastWeather(this.raceForView.race_name)
+      this.getPastWeather(this.raceForView.race_name)
   }
 
   getFurtherInfo(raceName) {
