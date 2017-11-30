@@ -1,11 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { HttpModule } from "@angular/http";
 
 
-import { AppComponent } from './app.component';
-import { RaceFinderComponent } from './race-finder/race-finder.component';
-import { RaceViewerComponent } from './race-viewer/race-viewer.component';
-import { FilterPipe } from './filter.pipe';
+import { AppComponent } from "./app.component";
+import { RaceFinderComponent } from "./race-finder/race-finder.component";
+import { RaceViewerComponent } from "./race-viewer/race-viewer.component";
+import { FilterPipe } from "./filter.pipe";
+import { routingComponents, AppRoutingModule } from "./app-routing.module";
+import { RacePageComponent } from "./race-page/race-page.component";
+import { ServerService } from "./server.service";
 
 
 @NgModule({
@@ -13,12 +19,17 @@ import { FilterPipe } from './filter.pipe';
     AppComponent,
     RaceFinderComponent,
     RaceViewerComponent,
-    FilterPipe
+    RacePageComponent,
+    FilterPipe,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [ServerService, RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
