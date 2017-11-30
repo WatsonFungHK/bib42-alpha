@@ -1,3 +1,50 @@
-<p>
-  race-viewer works!
-</p>
+ <div *ngIf="raceForView" id=viewer> 
+	<h2>{{raceForView.race_name}}</h2>
+	   <a href={{raceForView.official_website}} target="_blank">Go To the official website</a>   
+	<p>{{raceForView.city}}, {{raceForView.country}} || {{raceForView.race_date | date: 'fullDate'}}</p>
+	<br>
+	<p>{{raceForView.description}}</p>
+	<h4>Events</h4>
+	<div *ngFor="let event of events" class="container-fluid">
+		<div class="grid row col-lg-6 ">
+			{{event.type}}
+		</div>
+		<div class="grid row col-lg-6">
+			{{event.start_time}}
+		</div>
+	</div>
+
+
+	 <br>
+	 <h4>Holiday near Race Day</h4>
+	<div *ngFor="let holiday of holidays; let i = index" class="container-fluid">
+		<div *ngIf="i<5">
+			<div class="grid row col-lg-6">
+				{{holiday.holiday}}
+			</div>
+			<div class="grid row col-lg-6">
+				{{holiday.date | date: 'MMM d'}}
+			</div>
+		</div>
+	</div>
+	<!-- <br>
+	 <h4>Past Weather</h4>
+	<div *ngFor="let year of pastWeather" style="width: 100%;" class="container-fluid">
+		<div style="width: 100%;">
+			<b>{{year.year}}
+			{{year.date |  date: 'MMM d'}} </b>
+		</div>
+		<div style="width: 100%;">
+			<div class="grid row col-lg-7">
+				{{year.description}}
+			</div>
+			<div class="grid row col-lg-3">
+				{{year.lowest_temperature}}°C - {{year.highest_temperature}}°C
+			</div>
+			<div class="grid row col-lg-2">
+				{{year.wind_speed_mph}} mph
+			</div>
+		</div>
+	</div>  -->
+
+  </div>  
