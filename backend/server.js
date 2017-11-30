@@ -27,7 +27,8 @@ app.get('/api/race_basic_info',(req,res)=>{
 });
 
 app.get('/api/eventandstarttime/:raceName', (req, res)=>{
-    const raceName = req.params.raceName.replace(/%20/g, ' ')
+    const raceName = req.params.raceName.replace(/'%20'/g, ' ')
+    console.log(raceName)
     event_type_and_start_time.findAll({
         where: {
             race_name: raceName
@@ -42,6 +43,7 @@ app.get('/api/eventandstarttime/:raceName', (req, res)=>{
 
 app.get('/api/holidays/:country', (req, res)=>{
     const country = req.params.country.replace(/'%20'/g, ' ')
+    console.log(country)
     holiday_of_asian_country.findAll({
         where: {
             country: country

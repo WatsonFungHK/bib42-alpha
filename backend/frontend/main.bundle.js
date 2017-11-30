@@ -316,18 +316,24 @@ var RaceFinderComponent = (function () {
         this.races = [];
         this.raceClicked = {
             id: 58,
-            race_name: 'haha New Taipei City Wan Jin Shi Marathon',
-            country: 'Taiwan',
-            city: 'Taipei City',
-            official_website: 'http://www.shonan-kokusai.jp/12th/',
-            description: 'greodgnoregreignrogiowegheowig',
-            race_date: '2018-03-17T16:00:00.000Z'
+            race_name: "haha New Taipei City Wan Jin Shi Marathon",
+            country: "Taiwan",
+            city: "Taipei City",
+            official_website: "http://www.shonan-kokusai.jp/12th/",
+            description: "greodgnoregreignrogiowegheowig",
+            race_date: "2018-03-17T16:00:00.000Z"
         };
-        this.term = '';
+        this.term = "";
         // this.dataService.setRaceView(this.raceClicked)
     }
     RaceFinderComponent.prototype.ngOnInit = function () {
         this.getRace_basic_info();
+    };
+    RaceFinderComponent.prototype.raceOnClicked = function (race) {
+        this.raceClicked = race;
+        console.log("raceOnClicked() with " + this.raceClicked.race_name);
+        // console.log(this.raceClicked )
+        this.dataService.sendRace(this.raceClicked);
     };
     RaceFinderComponent.prototype.getRace_basic_info = function () {
         var _this = this;
@@ -335,21 +341,15 @@ var RaceFinderComponent = (function () {
             .subscribe(function (data) {
             _this.races = data;
             _this.races.forEach(function (race) {
-                race.country = race.country.replace('-', ' ');
-                race.city = race.city.replace('-', ' ');
+                race.country = race.country.replace("-", " ");
+                race.city = race.city.replace("-", " ");
             });
             _this.raceClicked = _this.races[Math.floor(Math.random() * _this.races.length)];
         }, function (error) { return console.log(error); });
     };
-    RaceFinderComponent.prototype.raceOnClicked = function (race) {
-        this.raceClicked = race;
-        console.log('raceOnClicked() with ' + this.raceClicked.race_name);
-        // console.log(this.raceClicked )
-        this.dataService.sendRace(this.raceClicked);
-    };
     RaceFinderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-race-finder',
+            selector: "app-race-finder",
             template: __webpack_require__("../../../../../src/app/race-finder/race-finder.component.html"),
             styles: [__webpack_require__("../../../../../src/app/race-finder/race-finder.component.css")],
         }),
@@ -582,7 +582,7 @@ var ServerService = (function () {
         this.http = http;
     }
     ServerService.prototype.retrieveBasicInfo = function () {
-        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + '/api/race_basic_info';
+        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + "/api/race_basic_info";
         return this.http.get(apiUrl)
             .map(function (response) {
             var data = response.json();
@@ -590,7 +590,8 @@ var ServerService = (function () {
         });
     };
     ServerService.prototype.retrieveEventAndStartTime = function (raceName) {
-        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + '/api/eventandstarttime/' + raceName.replace(/\s/g, '%20');
+        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + "/api/eventandstarttime/" + raceName.replace(/\s/g, "%20");
+        console.log(apiUrl);
         return this.http.get(apiUrl)
             .map(function (response) {
             var data = response.json();
@@ -598,7 +599,7 @@ var ServerService = (function () {
         });
     };
     ServerService.prototype.retrievePastWeather = function (raceName) {
-        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + '/api/pastweather/' + raceName.replace(/\s/g, '%20');
+        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + "/api/pastweather/" + raceName.replace(/\s/g, "%20");
         return this.http.get(apiUrl)
             .map(function (response) {
             var data = response.json();
@@ -606,7 +607,7 @@ var ServerService = (function () {
         });
     };
     ServerService.prototype.retrieveHolidays = function (countryName) {
-        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + '/api/holidays/' + countryName.replace(/\s/g, '%20').toLowerCase();
+        var apiUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url + "/api/holidays/" + countryName.replace(/\s/g, "%20").toLowerCase();
         return this.http.get(apiUrl)
             .map(function (response) {
             var data = response.json();
@@ -635,7 +636,7 @@ var ServerService = (function () {
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    url: 'http://locahost:8080'
+    url: "http://localhost:8080"
 };
 
 
