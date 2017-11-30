@@ -18,3 +18,8 @@ input {
 .marathon-container:hover {
 	background-color: #EFEFEF;
 } 
+
+#tagsinput {
+	padding: 5px;
+    width: 100%;
+}
