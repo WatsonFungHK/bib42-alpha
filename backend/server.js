@@ -13,9 +13,6 @@ const   models                      = require('./models'),
         event_type_and_start_time   = models.event_type_and_start_time
         holiday_of_asian_country    = models.holiday_of_asian_country
 
-// app.get('/', (req, res)=>{
-//     res.redirect('/races')
-// })
 app.use(express.static('frontend'));
 
 app.get('/api/race_basic_info',(req,res)=>{
@@ -34,7 +31,6 @@ app.get('/api/eventandstarttime/:raceName', (req, res)=>{
             race_name: raceName
         }
     }).then((obj)=>{
-        // console.log(obj.dataValues)
         res.json(obj)
     }).catch((err)=>{
         throw new Error(err)
@@ -49,7 +45,6 @@ app.get('/api/holidays/:country', (req, res)=>{
             country: country
         }
     }).then((obj)=>{
-        // console.log(obj.dataValues)
         res.json(obj)
     }).catch((err)=>{
         throw new Error(err)
@@ -76,7 +71,6 @@ app.get('/api/mybib',(req,res)=>{
 });
 
 app.get('*', function(req, res) {
-    // res.json('go back to server.js to determine path')
     res.sendFile(path.join(__dirname + '/frontend/index.html'))
 });
 
