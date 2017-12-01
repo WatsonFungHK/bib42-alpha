@@ -9,9 +9,10 @@
 			<div class="grid row col-lg-6 ">
 				{{event.type}}
 			</div>
-			<div class="grid row col-lg-6">
+			<div class="grid row col-lg-6" *ngIf="event.start_time ; else notStartTimeBox">
 				start at {{event.start_time}}
 			</div>
+			<ng-template #notStartTimeBox>not announced yet</ng-template>
 		</div>
 	</div>
 

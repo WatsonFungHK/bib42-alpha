@@ -53,7 +53,7 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
         data => {
           this.events = [];
           data.forEach((event) => {
-            const startTimeOrNotice = event.start_time ? event.start_time.substr(0, 5) : "not announced yet"
+            const startTimeOrNotice = event.start_time ? event.start_time.substr(0, 5) : null;
             this.events.push({
               type: event.event,
               start_time:  startTimeOrNotice
