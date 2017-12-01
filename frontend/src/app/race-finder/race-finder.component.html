@@ -4,8 +4,9 @@
 <h3>
   One more excuse to travel
 </h3> 
-<input id="tagsinput" data-role="tagsinput" placeholder="type in race name, place name, or month" type="text" [(ngModel)]="term" />
-<button (click)="surpriseUser()">surprise me</button>
+<button class="btn btn-primary" (click)="surpriseUser()">surprise me</button>
+<br><br>
+<input class="form-group" id="tagsinput" data-role="tagsinput" placeholder="type in race name, place name, or month" type="text" [(ngModel)]="term" />
 <br>
 </div>  
 <ul id="race-list-box">

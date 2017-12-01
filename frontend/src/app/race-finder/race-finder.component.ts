@@ -24,8 +24,7 @@ export class RaceFinderComponent implements OnInit {
     "Japan", "Beijing", "Taiwan", "hong kong", "Thailand", "North Korea",
     "January", "August",
     "International marathon", "Half marathon",
-    "trail", "city",
-    "100"
+    "trail", "city", "Ultra",
   ];
   constructor(private serverService: ServerService, private dataService: DataService) {
   }

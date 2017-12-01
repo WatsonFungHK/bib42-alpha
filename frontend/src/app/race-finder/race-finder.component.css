@@ -21,10 +21,10 @@
 
 #tagsinput {
 	padding: 5px;
-    width: 100%;
+    width: 78%; 
 }
 
-div#search-container {
-    margin-left: 40px;
-    margin-right: 128px;
-}
+ div#search-container {
+	margin-left: 40px; 
+    /* margin-right: 128px; */
+} 

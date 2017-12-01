@@ -1,5 +1,5 @@
 .hero{
-  height: 500px;
+  height: 420px;
   background-image: url('../../assets/images/background.jpg');
   position: relative;
   display: flex;
@@ -34,6 +34,12 @@
   color: white;
   font-size: 40px;
 }
+
+h5, p{
+  font: sans-serif
+}
+
+
 
 .heading button{
   font-size: 30px;
