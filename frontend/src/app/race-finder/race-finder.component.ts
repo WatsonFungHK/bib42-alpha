@@ -20,13 +20,21 @@ export class RaceFinderComponent implements OnInit {
     race_date: "2018-03-17T16:00:00.000Z"
   };
   term = "";
-  termArray = ["Japan", "December", "International marathon", "Beijing", "Taiwan", "Half marathon", "Thailand", "hong kong", "trail", "city"];
+  termArray = [
+    "Japan", "Beijing", "Taiwan", "hong kong", "Thailand", "North Korea"
+    "January", "International marathon", "Half marathon",
+    "trail", "city",
+    "100"
+  ];
   constructor(private serverService: ServerService, private dataService: DataService) {
   }
 
   ngOnInit() {
-    this.term = this.termArray[Math.floor(Math.random() * this.termArray.length)];
     this.getRace_basic_info();
+  }
+
+  surpriseUser() {
+    this.term = this.termArray[Math.floor(Math.random() * this.termArray.length)];
   }
 
   raceOnClicked(race) {

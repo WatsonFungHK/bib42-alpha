@@ -305,7 +305,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/race-finder/race-finder.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- hHA  -->\n<!-- </div>  -->\n<div id=\"search-container\">\n<h3>\n  One more excuse to travel\n</h3> \n<input id=\"tagsinput\" data-role=\"tagsinput\" placeholder=\"find the next race\" type=\"text\" [(ngModel)]=\"term\" />\n</div>  \n<ul id=\"race-finder\">\n  <li id=\"race-list-box\" *ngFor=\"let race of races | filter:term as result\" class=\"marathon-container\" style=\"list-style: none;\">\n    <!-- <div *ngIf=\"i<1\">\n     {{result? result.length : 0}} races may satisfy you\n    </div> -->\n    <div (click)=\"raceOnClicked(race)\">\n      <span>\n        <h4>{{race.race_name}}</h4>\n        <p>{{race.city}}, {{race.country}} || {{race.race_date | date: 'fullDate'}}</p>\n      </span>\n    </div>  \n  </li>\n</ul>\n"
+module.exports = "<!-- hHA  -->\n<!-- </div>  -->\n<div id=\"search-container\">\n<h3>\n  One more excuse to travel\n</h3> \n<input id=\"tagsinput\" data-role=\"tagsinput\" placeholder=\"type in race name, place name, or month\" type=\"text\" [(ngModel)]=\"term\" />\n<button (click)=\"surpriseUser()\">surprise me</button>\n</div>  \n<ul id=\"race-finder\">\n  <li id=\"race-list-box\" *ngFor=\"let race of races | filter:term as result\" class=\"marathon-container\" style=\"list-style: none;\">\n    <!-- <div *ngIf=\"i<1\">\n     {{result? result.length : 0}} races may satisfy you\n    </div> -->\n    <div (click)=\"raceOnClicked(race)\">\n      <span>\n        <h4>{{race.race_name}}</h4>\n        <p>{{race.city}}, {{race.country}} || {{race.race_date | date: 'fullDate'}}</p>\n      </span>\n    </div>  \n  </li>\n</ul>\n"
 
 /***/ }),
 
@@ -343,11 +343,18 @@ var RaceFinderComponent = (function () {
             race_date: "2018-03-17T16:00:00.000Z"
         };
         this.term = "";
-        this.termArray = ["Japan", "December", "International marathon", "Beijing", "Taiwan", "Half marathon", "Thailand", "hong kong", "trail", "city"];
+        this.termArray = [
+            "Japan", "Beijing", "Taiwan", "hong kong", "Thailand", "North Korea",
+            "January", "International marathon", "Half marathon",
+            "trail", "city",
+            "100"
+        ];
     }
     RaceFinderComponent.prototype.ngOnInit = function () {
-        this.term = this.termArray[Math.floor(Math.random() * this.termArray.length)];
         this.getRace_basic_info();
+    };
+    RaceFinderComponent.prototype.surpriseUser = function () {
+        this.term = this.termArray[Math.floor(Math.random() * this.termArray.length)];
     };
     RaceFinderComponent.prototype.raceOnClicked = function (race) {
         this.raceClicked = race;
@@ -475,7 +482,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/race-viewer/race-viewer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <div *ngIf=\"raceForView\" id=viewer> \n\t<h2>{{raceForView.race_name}}</h2>\n\t   <a href={{raceForView.official_website}} target=\"_blank\">Go To the official website</a>   \n\t<p>{{raceForView.city}}, {{raceForView.country}} || {{raceForView.race_date | date: 'fullDate'}}</p>\n\t<br>\n\t<h4>Events</h4>\n\t<div *ngFor=\"let event of events\" class=\"container-fluid\">\n\t\t<div class=\"grid row col-lg-6 \">\n\t\t\t{{event.type}}\n\t\t</div>\n\t\t<div class=\"grid row col-lg-6\">\n\t\t\t{{event.start_time}}\n\t\t</div>\n\t</div>\n\n\t\n\n\t <br>\n\t <h4>Holiday near Race Day</h4>\n\t<div *ngFor=\"let holiday of holidays; let i = index\" class=\"container-fluid\">\n\t\t<div *ngIf=\"i<5\">\n\t\t\t<div class=\"grid row col-lg-6\">\n\t\t\t\t{{holiday.holiday}}\n\t\t\t</div>\n\t\t\t<div class=\"grid row col-lg-6\">\n\t\t\t\t{{holiday.date | date: 'MMM d'}}\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t <br>\n\t <h4>Past Weather</h4>\n\t<div *ngFor=\"let year of pastWeather\" style=\"width: 100%;\" class=\"container-fluid\">\n\t\t<div style=\"width: 100%;\">\n\t\t\t<b>{{year.year}}\n\t\t\t{{year.date |  date: 'MMM d'}} </b>\n\t\t</div>\n\t\t<div style=\"width: 100%;\">\n\t\t\t<div class=\"grid row col-lg-7\">\n\t\t\t\t{{year.description}}\n\t\t\t</div>\n\t\t\t<div class=\"grid row col-lg-3\">\n\t\t\t\t{{year.lowest_temperature}}°C - {{year.highest_temperature}}°C\n\t\t\t</div>\n\t\t\t<div class=\"grid row col-lg-2\">\n\t\t\t\t{{year.wind_speed_mph}} mph\n\t\t\t</div>\n\t\t</div>\n\t</div>  \n\n  </div>  "
+module.exports = " <div *ngIf=\"raceForView\" id=viewer> \n\t<h2>{{raceForView.race_name}}</h2>\n\t   <a href={{raceForView.official_website}} target=\"_blank\">Go To the official website</a>   \n\t<p>{{raceForView.city}}, {{raceForView.country}} || {{raceForView.race_date | date: 'fullDate'}}</p>\n\t<br>\n\t<div *ngIf=\"events\">\n\t\t<h4>Events</h4>\n\t\t<div *ngFor=\"let event of events\" class=\"container-fluid\">\n\t\t\t<div class=\"grid row col-lg-6 \">\n\t\t\t\t{{event.type}}\n\t\t\t</div>\n\t\t\t<div class=\"grid row col-lg-6\">\n\t\t\t\tstart at {{event.start_time}}\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t\n\n\t <br>\n\t<div *ngIf=\"holidays.length > 0\">\n\t\t<h4>Holiday near Race Day</h4>\n\t\t<div *ngFor=\"let holiday of holidays; let i = index\" class=\"container-fluid\">\n\t\t\t<div *ngIf=\"i<5\">\n\t\t\t\t<div class=\"grid row col-lg-6\">\n\t\t\t\t\t{{holiday.holiday}}\n\t\t\t\t</div>\n\t\t\t\t<div class=\"grid row col-lg-6\">\n\t\t\t\t\t{{holiday.date | date: 'MMM d'}}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<br>\n\t<div *ngIf=\"pastWeather.length > 0\">\n\t\t<h4>Past Weather</h4>\n\t\t<div *ngFor=\"let year of pastWeather\" style=\"width: 100%;\" class=\"container-fluid\">\n\t\t\t<div style=\"width: 100%;\">\n\t\t\t\t<b>{{year.year}}\n\t\t\t\t{{year.date |  date: 'MMM d'}} </b>\n\t\t\t</div>\n\t\t\t<div style=\"width: 100%;\">\n\t\t\t\t<div class=\"grid row col-lg-7\">\n\t\t\t\t\t{{year.description}}\n\t\t\t\t</div>\n\t\t\t\t<div class=\"grid row col-lg-3\">\n\t\t\t\t\t{{year.lowest_temperature}}°C - {{year.highest_temperature}}°C\n\t\t\t\t</div>\n\t\t\t\t<div class=\"grid row col-lg-2\">\n\t\t\t\t\t{{year.wind_speed_mph}} mph\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div> \n\n  </div>  "
 
 /***/ }),
 
