@@ -71,7 +71,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".panel{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-ms-flex-pack: distribute;\n\t    justify-content: space-around;\n}", ""]);
+exports.push([module.i, ".panel{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-ms-flex-pack: distribute;\n\t    justify-content: space-around;\n}\n\nh1, h1 {\n    font-size: 48px;\n    font-family: 'Rationale', sans-serif;\n    padding-left: 15px;\n}", ""]);
 
 // exports
 
@@ -84,7 +84,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-landing></app-landing>\n<router-outlet></router-outlet>"
+module.exports = "<h1>\n  BIB42\n</h1>\n<app-landing></app-landing>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -295,7 +295,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".hero{\n  height: 500px;\n  background-image: url(" + __webpack_require__("../../../../../src/assets/images/background.jpg") + ");\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n.overlay{\n  width: 100%;\n  height: 100%;\n  background-color: #000000;\n  opacity: 0.5;\n  position: absolute;\n}\n\n.heading{\n  font: sans-serif;\n  z-index: 5;\n  width: 400px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n\n.heading h1, h2{\n  font: sans-serif;\n  color: white;\n  font-size: 40px;\n}\n\n.heading button{\n  font-size: 30px;\n  width: 170px;\n  color: white;\n  background-color: green;\n  border: none;\n  border-radius: 20px;\n}\n\n.icons{\n  width: 100vw;\n  /* background-color: #CEE7B5; */\n}\n\n.icons img {\n\twidth: 100px;\n\theight: 100px;\t\n}\n\n.icon{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  margin: 30px 0;\n}\n\n.icon p{\n  width: 150px;\n  min-height: 100px;\n  padding-left: 10px;\n}\n\n .textContainer {\n  text-align: center;\n} ", ""]);
 
 // exports
 
@@ -308,7 +308,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/landing/landing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  landing works!\n</p>\n"
+module.exports = "  <section class=\"hero\">\n      <div class=\"overlay\">\n      </div>\n      <div class=\"heading\">\n        <h2>Run Asia</h2>\n        <h2>See Diversity</h2>\n        <!-- <button>Learn More</button> -->\n      </div>\n  </section>\n    \n      <section class=\"icons container-fluid\">\n        <div class=\"icon col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n          <img src=\"assets/images/lighting.png\">\n          <div class=textContainer>\n            <h4>Instant</h4>\n            <p>view races around the world without refreshing your webbrowser</p>\n          </div>\n        </div>\n        <div class=\"icon col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n          <img src=\"assets/images/holiday.png\">\n          <div class=textContainer>\n          <h4>Atmosphere</h4>\n          <p>plan your overseas marathon with local holidays and festivals</p>\n          </div>\n        </div>\n        <div class=\"icon col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n          <img src=\"assets/images/weather.ico\">\n          <div class=textContainer>\n            <h4>Weather</h4>\n            <p>know past weather to choose races you feel most comfortable with </p>\n          </div>\n        </div>\n         <div class=\"icon col-lg-3 col-md-3 col-sm-6 col-xs-12\">\n          <img src=\"assets/images/lighting.png\">\n          <div class=textContainer>\n            <h4>Instant</h4>\n            <p>view races around the world without refreshing your webbrowser</p>\n          </div>\n        </div> \n      </section>\n"
 
 /***/ }),
 
@@ -473,7 +473,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/race-page/race-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  BIB42\n</h1>\n<div class=\"container-fluid\">\n  <app-race-finder class=\"grid row col-lg-6 col-md-5 col-sm-4 col-xs-12\">\n\n  </app-race-finder>\n  <app-race-viewer class=\"grid row col-lg-6 col-md-7 col-sm-8 col-xs-12\">\n    \n  </app-race-viewer>\n</div>"
+module.exports = "\n<div class=\"container-fluid\">\n  <app-race-finder class=\"grid row col-lg-6 col-md-5 col-sm-4 col-xs-12\">\n\n  </app-race-finder>\n  <app-race-viewer class=\"grid row col-lg-6 col-md-7 col-sm-8 col-xs-12\">\n    \n  </app-race-viewer>\n</div>"
 
 /***/ }),
 
@@ -711,6 +711,13 @@ var ServerService = (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "../../../../../src/assets/images/background.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "background.6dc3cc3c8ee52637d5da.jpg";
 
 /***/ }),
 
