@@ -1,12 +1,9 @@
-input {
-	width: 80%
-}
-
 #race-finder {
 	width: 80%;
 }
 
 #race-list-box {
+	width: 80%;
 	max-height: 540px;
 	overflow: auto;
 }

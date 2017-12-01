@@ -55,4 +55,19 @@ export class ServerService {
       );
   }
 
+  queryGoogleMapLatAndLng(city, country) {
+    // tslint:disable-next-line:max-line-length
+    const apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?&address=" + city.replace(" ", "%20") + "+" + country.replace(" ", "%20");
+    console.log(apiUrl);
+    return this.http.get(apiUrl)
+      .map(
+        (response: Response) => {
+          const data = response.json();
+          const latLngObj = data.results[0].geometry.location;
+          console.log(latLngObj);
+          return latLngObj;
+        }
+      );
+  }
+
 }

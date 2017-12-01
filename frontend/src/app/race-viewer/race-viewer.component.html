@@ -3,6 +3,9 @@
 	   <a href={{raceForView.official_website}} target="_blank">Go To the official website</a>   
 	<p>{{raceForView.city}}, {{raceForView.country}} || {{raceForView.race_date | date: 'fullDate'}}</p>
 	<br>
+	<!-- google map  -->
+	<agm-map [latitude]="lat" [longitude]="lng"></agm-map>
+
 	<div *ngIf="events">
 		<h4>Events</h4>
 		<div *ngFor="let event of events" class="container-fluid">
@@ -52,4 +55,5 @@
 		</div>
 	</div> 
 
-  </div>  
+  </div> 
+<br>

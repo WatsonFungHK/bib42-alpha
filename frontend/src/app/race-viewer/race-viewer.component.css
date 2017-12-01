@@ -5,3 +5,7 @@
     padding-left: 20px;
     box-shadow: 2px 2px 2px #d4d0d0 ;
 }
+
+agm-map {
+      height: 200px;
+}

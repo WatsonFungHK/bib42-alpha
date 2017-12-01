@@ -6,16 +6,18 @@
 </h3> 
 <input id="tagsinput" data-role="tagsinput" placeholder="type in race name, place name, or month" type="text" [(ngModel)]="term" />
 <button (click)="surpriseUser()">surprise me</button>
+<br>
 </div>  
-<ul id="race-finder">
-  <li id="race-list-box" *ngFor="let race of races | filter:term as result" class="marathon-container" style="list-style: none;">
+<ul id="race-list-box">
+  <li *ngFor="let race of races | filter:term as result" class="marathon-container" style="list-style: none;">
     <!-- <div *ngIf="i<1">
      {{result? result.length : 0}} races may satisfy you
     </div> -->
     <div (click)="raceOnClicked(race)">
       <span>
         <h4>{{race.race_name}}</h4>
-        <p>{{race.city}}, {{race.country}} || {{race.race_date | date: 'fullDate'}}</p>
+        <p>{{race.city}}, {{race.country}}</p>
+        <p>{{race.race_date | date: 'fullDate'}}</p>
       </span>
     </div>  
   </li>

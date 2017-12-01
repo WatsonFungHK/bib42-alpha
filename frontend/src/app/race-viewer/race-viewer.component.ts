@@ -22,7 +22,8 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
   events = [];
   holidays = [];
   pastWeather;
-
+  lat = 51.678418;
+  lng = 7.809007;
 
   constructor(private serverService: ServerService, private dataService: DataService) {
     this.subsription = this.dataService.getRace().subscribe(
@@ -31,6 +32,7 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
         this.getFurtherInfo(this.raceForView.race_name);
         this.getHolidays(this.raceForView.country);
         this.getPastWeather(this.raceForView.race_name);
+        this.getLatAndLng(this.raceForView.city, this.raceForView.country);
       },
       error => console.log(error)
     );
@@ -45,6 +47,18 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
       this.getFurtherInfo(this.raceForView.race_name);
       this.getHolidays(this.raceForView.country);
       this.getPastWeather(this.raceForView.race_name);
+      this.getLatAndLng(this.raceForView.city, this.raceForView.country);
+  }
+
+  getLatAndLng(city, country) {
+    this.serverService.queryGoogleMapLatAndLng(city, country)
+      .subscribe(
+        data => {
+          this.lat = data.lat;
+          this.lng = data.lng;
+        },
+        error => console.log(error)
+      );
   }
 
   getFurtherInfo(raceName) {
