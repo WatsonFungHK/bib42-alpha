@@ -20,14 +20,12 @@
 	 <br>
 	<div *ngIf="holidays.length > 0">
 		<h4>Holiday near Race Day</h4>
-		<div *ngFor="let holiday of holidays; let i = index" class="container-fluid">
-			<div *ngIf="i<5">
-				<div class="grid row col-lg-6">
-					{{holiday.holiday}}
-				</div>
-				<div class="grid row col-lg-6">
-					{{holiday.date | date: 'MMM d'}}
-				</div>
+		<div *ngFor="let holiday of holidays" class="container-fluid">
+			<div class="grid row col-lg-6">
+				{{holiday.holiday}}
+			</div>
+			<div class="grid row col-lg-6">
+				{{holiday.date | date: 'MMM d'}}
 			</div>
 		</div>
 	</div>

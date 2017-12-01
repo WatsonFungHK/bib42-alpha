@@ -21,4 +21,18 @@ export class DataService {
     return this.subject.asObservable();
   }
 
+  calculateDateInterval(date1, date2) {
+    // Get 1 day in milliseconds
+    const one_day_ms = 1000 * 60 * 60 * 24;
+    // Convert both dates to milliseconds
+    const date1_ms = date1.getTime();
+    const date2_ms = date2.getTime();
+
+    // Calculate the difference in milliseconds
+    const difference_ms = -(date2_ms - date1_ms);
+    const days = Math.floor(difference_ms / one_day_ms);
+    console.log(days);
+    return days;
+    }
+
 }
