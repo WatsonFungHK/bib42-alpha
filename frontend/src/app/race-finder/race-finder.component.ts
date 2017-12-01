@@ -21,8 +21,9 @@ export class RaceFinderComponent implements OnInit {
   };
   term = "";
   termArray = [
-    "Japan", "Beijing", "Taiwan", "hong kong", "Thailand", "North Korea"
-    "January", "International marathon", "Half marathon",
+    "Japan", "Beijing", "Taiwan", "hong kong", "Thailand", "North Korea",
+    "January", "August",
+    "International marathon", "Half marathon",
     "trail", "city",
     "100"
   ];
@@ -39,8 +40,6 @@ export class RaceFinderComponent implements OnInit {
 
   raceOnClicked(race) {
     this.raceClicked = race;
-    // console.log("raceOnClicked() with " + this.raceClicked.race_name);
-    // console.log(this.raceClicked )
     this.dataService.sendRace(this.raceClicked);
   }
 

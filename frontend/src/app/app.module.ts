@@ -12,6 +12,7 @@ import { FilterPipe } from "./filter.pipe";
 import { routingComponents, AppRoutingModule } from "./app-routing.module";
 import { RacePageComponent } from "./race-page/race-page.component";
 import { ServerService } from "./server.service";
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ServerService } from "./server.service";
     RaceViewerComponent,
     RacePageComponent,
     FilterPipe,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,

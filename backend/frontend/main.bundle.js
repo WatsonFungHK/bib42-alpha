@@ -84,7 +84,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>"
+module.exports = "\n<app-landing></app-landing>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -136,12 +136,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__race_page_race_page_component__ = __webpack_require__("../../../../../src/app/race-page/race-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__server_service__ = __webpack_require__("../../../../../src/app/server.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__landing_landing_component__ = __webpack_require__("../../../../../src/app/landing/landing.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -165,6 +167,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__race_viewer_race_viewer_component__["a" /* RaceViewerComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__race_page_race_page_component__["a" /* RacePageComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__filter_pipe__["a" /* FilterPipe */],
+                __WEBPACK_IMPORTED_MODULE_12__landing_landing_component__["a" /* LandingComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -265,7 +268,7 @@ var FilterPipe = (function () {
             // tslint:disable-next-line:radix
             var monthIdx = parseInt(race.race_date.split("-")[1]) - 1;
             var monthString = month[monthIdx];
-            console.log(race.race_name + " " + race.race_date + ": " + monthString + " " + monthIdx);
+            // console.log(`${race.race_name} ${race.race_date}: ${monthString} ${monthIdx}`);
             return race.race_name.toLowerCase().includes(term) ||
                 race.city.toLowerCase().includes(term) ||
                 race.country.toLowerCase().includes(term) ||
@@ -278,6 +281,67 @@ var FilterPipe = (function () {
         })
     ], FilterPipe);
     return FilterPipe;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/landing.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/landing.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  landing works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/landing/landing.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LandingComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LandingComponent = (function () {
+    function LandingComponent() {
+    }
+    LandingComponent.prototype.ngOnInit = function () {
+    };
+    LandingComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: "app-landing",
+            template: __webpack_require__("../../../../../src/app/landing/landing.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/landing/landing.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LandingComponent);
+    return LandingComponent;
 }());
 
 
@@ -345,7 +409,8 @@ var RaceFinderComponent = (function () {
         this.term = "";
         this.termArray = [
             "Japan", "Beijing", "Taiwan", "hong kong", "Thailand", "North Korea",
-            "January", "International marathon", "Half marathon",
+            "January", "August",
+            "International marathon", "Half marathon",
             "trail", "city",
             "100"
         ];
@@ -358,8 +423,6 @@ var RaceFinderComponent = (function () {
     };
     RaceFinderComponent.prototype.raceOnClicked = function (race) {
         this.raceClicked = race;
-        // console.log("raceOnClicked() with " + this.raceClicked.race_name);
-        // console.log(this.raceClicked )
         this.dataService.sendRace(this.raceClicked);
     };
     RaceFinderComponent.prototype.getRace_basic_info = function () {

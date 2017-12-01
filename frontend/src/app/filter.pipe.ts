@@ -27,7 +27,7 @@ export class FilterPipe implements PipeTransform {
       // tslint:disable-next-line:radix
       const monthIdx = parseInt(race.race_date.split("-")[1]) - 1;
       const monthString = month[monthIdx];
-      console.log(`${race.race_name} ${race.race_date}: ${monthString} ${monthIdx}`);
+      // console.log(`${race.race_name} ${race.race_date}: ${monthString} ${monthIdx}`);
       return  race.race_name.toLowerCase().includes(term) ||
               race.city.toLowerCase().includes(term) ||
               race.country.toLowerCase().includes(term) ||
