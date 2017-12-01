@@ -34,6 +34,7 @@ export class ServerService {
 
   retrievePastWeather(raceName: string) {
     const apiUrl = environment.url + "/api/pastweather/" + raceName.replace(/\s/g, "%20");
+    console.log(apiUrl);
     return this.http.get(apiUrl)
       .map(
         (response: Response) => {
