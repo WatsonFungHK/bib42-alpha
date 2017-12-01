@@ -6,7 +6,7 @@
 	<!-- google map  -->
 	<agm-map [latitude]="lat" [longitude]="lng"></agm-map>
 
-	<div *ngIf="events.length > 0 ; else noEventBox">
+	<div *ngIf="events.length > 0">
 		<h4>Events</h4>
 		<div *ngFor="let event of events" class="container-fluid">
 			<div class="grid row col-lg-4 ">
@@ -18,15 +18,7 @@
 			<ng-template class="grid row col-lg-4" #notStartTimeBox>not announced yet</ng-template>
 		</div>
 	</div>
-	<div #noEventBox>
-	<h4>Events></h4>
-		<div class="grid row col-lg-4">
-			<b>marathon</b>
-		</div>
-		<div class="grid row col-lg-4">
-			not announced yet
-		</div>
-	</div>
+
 	 <br>
 	<div *ngIf="holidays.length > 0" class="container-fluid">
 		<h4>Holiday near Race Day</h4>
