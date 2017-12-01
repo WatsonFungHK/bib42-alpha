@@ -31,7 +31,7 @@ export class DataService {
     // Calculate the difference in milliseconds
     const difference_ms = -(date2_ms - date1_ms);
     const days = Math.floor(difference_ms / one_day_ms);
-    console.log(days);
+    // console.log("dataService says date interval between two holidays is " + days);
     return days;
     }
 

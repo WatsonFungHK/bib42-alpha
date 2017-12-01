@@ -68,14 +68,17 @@ export class RaceViewerComponent implements OnInit, OnDestroy {
     this.serverService.retrieveHolidays(country)
       .subscribe(
         data => {
-          this.holidays = [];
           this.holidays = data;
           this.holidays = this.holidays.filter((holiday) => {
             const raceDate = new Date(this.raceForView.race_date);
             const holidayDate = new Date(holiday.date);
-            console.log(new Date(this.raceForView.race_date) + "   " + new Date(holiday.date))
             const dayDiff = this.dataService.calculateDateInterval(raceDate, holidayDate);
             return dayDiff < 30;
+          });
+          this.holidays.sort(function(a, b){
+            const aDate = new Date(a.date);
+            const bDate = new Date(b.date);
+            return aDate.getTime() - bDate.getTime();
           });
         },
         error => console.log(error)
