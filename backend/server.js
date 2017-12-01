@@ -38,7 +38,7 @@ app.get('/api/eventandstarttime/:raceName', (req, res)=>{
 })
 
 app.get('/api/holidays/:country', (req, res)=>{
-    const country = req.params.country.replace(/'%20'/g, ' ')
+    const country = req.params.country.replace(/'%20'/g, '_')
     console.log(country)
     holiday_of_asian_country.findAll({
         where: {
