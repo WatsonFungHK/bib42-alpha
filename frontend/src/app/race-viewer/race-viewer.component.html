@@ -6,7 +6,7 @@
 	<!-- google map  -->
 	<agm-map [latitude]="lat" [longitude]="lng"></agm-map>
 
-	<div *ngIf="events">
+	<div *ngIf="events.length > 0">
 		<h4>Events</h4>
 		<div *ngFor="let event of events" class="container-fluid">
 			<div class="grid row col-lg-4 ">
@@ -23,7 +23,7 @@
 	<div *ngIf="holidays.length > 0" class="container-fluid">
 		<h4>Holiday near Race Day</h4>
 		<div *ngFor="let holiday of holidays">
-			<div class="grid row col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<div class="grid row col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{holiday.holiday}}</b>
 				{{holiday.date | date: 'MMM d'}}
 			</div>
