@@ -34,7 +34,6 @@ export class ServerService {
 
   retrievePastWeather(raceName: string) {
     const apiUrl = environment.url + "/api/pastweather/" + raceName.replace(/\s/g, "%20");
-    console.log(apiUrl);
     return this.http.get(apiUrl)
       .map(
         (response: Response) => {
@@ -46,6 +45,7 @@ export class ServerService {
 
   retrieveHolidays(countryName: string) {
     const apiUrl = environment.url + "/api/holidays/" + countryName.replace(/\s/g, "%20").toLowerCase();
+    console.log(apiUrl);
     return this.http.get(apiUrl)
       .map(
         (response: Response) => {
