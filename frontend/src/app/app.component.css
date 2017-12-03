@@ -12,10 +12,11 @@ h1, h1 {
 p {
     font-size: 20px;
     font-family: 'Rationale', sans-serif;
-    padding-left: 30px;
+
 }
 
 #header {
     display: flex;
-    align-items: baseline;
+    /* justify-content: center; */
+    align-items: baseline; 
 }
